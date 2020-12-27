@@ -39,7 +39,7 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		JFrame frame = new JFrame("Card Layout");
+		JFrame frame = new JFrame("EMP Management System");
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.getContentPane().setLayout(null);
 
@@ -288,6 +288,7 @@ public class Main {
 		frame.revalidate();
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setSize(802, 502);
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 	}
 }
