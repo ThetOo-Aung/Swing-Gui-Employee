@@ -38,39 +38,39 @@ public class MainPanel extends JPanel{
 
 		JLabel lblUsername = new JLabel("Username: ");
 		lblUsername.setForeground(new Color(255, 255, 255));
-		lblUsername.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 17));
-		lblUsername.setBounds(25, 117, 97, 30);
+		lblUsername.setFont(new Font("Comic Sans MS", Font.PLAIN, 17));
+		lblUsername.setBounds(25, 163, 97, 30);
 		loginPanel.add(lblUsername);
 
 		JLabel lblWelcomeBack = new JLabel("Welcome Back !");
 		lblWelcomeBack.setForeground(new Color(255, 255, 255));
-		lblWelcomeBack.setFont(new Font("Sitka Text", Font.PLAIN, 30));
+		lblWelcomeBack.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 30));
 		lblWelcomeBack.setHorizontalAlignment(SwingConstants.CENTER);
 		lblWelcomeBack.setBounds(0, 13, 391, 91);
 		loginPanel.add(lblWelcomeBack);
 
 		usernameTextField = new JTextField();
-		usernameTextField.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		usernameTextField.setBounds(129, 117, 203, 30);
+		usernameTextField.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 17));
+		usernameTextField.setBounds(129, 163, 203, 30);
 		loginPanel.add(usernameTextField);
 		usernameTextField.setColumns(10);
 
 		JLabel lblPassword = new JLabel("Password: ");
 		lblPassword.setForeground(new Color(255, 255, 255));
-		lblPassword.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 17));
-		lblPassword.setBounds(25, 174, 97, 30);
+		lblPassword.setFont(new Font("Comic Sans MS", Font.PLAIN, 17));
+		lblPassword.setBounds(25, 227, 97, 30);
 		loginPanel.add(lblPassword);
 
 		passwordField = new JPasswordField();
 		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		passwordField.setBounds(129, 174, 203, 30);
+		passwordField.setBounds(129, 227, 203, 30);
 		loginPanel.add(passwordField);
 
 		 btnLogin = new JButton("Login");
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnLogin.setBackground(new Color(35, 73, 112));
 		btnLogin.setForeground(Color.WHITE);
-		btnLogin.setBounds(235, 238, 97, 30);
+		btnLogin.setBounds(235, 311, 97, 30);
 		btnLogin.setFocusPainted(false);
 		loginPanel.add(btnLogin);
 

@@ -3,6 +3,7 @@ package View;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -12,6 +13,19 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import java.awt.SystemColor;
 
 public class SecondaryPanel extends JPanel {
 
@@ -25,49 +39,174 @@ public class SecondaryPanel extends JPanel {
 	private JButton btnHome;
 	private JButton btnDisplay;
 	private JButton btnRegister;
+	private JButton btnRemove;
 	private CardLayout cl_cardContainer;
 
 	private Object[] columns = { "ID", "Name", "Email", "Position" };
 	private JTable displayTable;
 	private DefaultTableModel model = new DefaultTableModel();
-	private Object[] rows = new Object[4];
 
 	private JLabel lblTotalNumberOf;
 
-	public SecondaryPanel() {
+	public SecondaryPanel() throws IOException {
 
 		setBounds(0, 0, 784, 455);
 		setLayout(null);
 		setVisible(false);
 
 		JPanel TabPanel = new JPanel();
-		TabPanel.setBounds(0, 0, 129, 455);
+		TabPanel.setBounds(0, 0, 145, 455);
 		TabPanel.setBackground(new Color(0, 0, 0));
 
 		TabPanel.setLayout(null);
 
 		btnRegister = new JButton("Register");
-		btnRegister.setBounds(12, 172, 97, 25);
+		btnRegister.setFocusable(false);
+		btnRegister.setFocusPainted(false);
+		btnRegister.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				btnRegister.setBackground(new Color(0, 0, 0));
+			}
+		});
+		btnRegister.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				btnRegister.setBackground(new Color(0, 0, 0));
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				btnRegister.setBackground(new Color(0, 0, 0));
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				btnRegister.setBackground(new Color(0, 0, 0));
+			}
+		});
+
+		btnRegister.setBackground(Color.BLACK);
+		btnRegister.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnRegister.setForeground(Color.WHITE);
+		btnRegister.setBounds(24, 197, 97, 25);
+		btnRegister.setBorder(null);
 		TabPanel.add(btnRegister);
 
 		btnDisplay = new JButton("Display");
-		btnDisplay.setBounds(12, 238, 97, 25);
+		btnDisplay.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				btnDisplay.setBackground(new Color(0, 0, 0));
+			}
+		});
+		btnDisplay.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				btnDisplay.setBackground(new Color(0, 0, 0));
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				btnDisplay.setBackground(new Color(0, 0, 0));
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				btnDisplay.setBackground(new Color(0, 0, 0));
+			}
+		});
+		btnDisplay.setBackground(Color.BLACK);
+		btnDisplay.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnDisplay.setForeground(Color.WHITE);
+		btnDisplay.setBounds(24, 264, 97, 25);
+		btnDisplay.setFocusPainted(false);
+		btnDisplay.setBorder(null);
 		TabPanel.add(btnDisplay);
 
 		btnHome = new JButton("Home");
-		btnHome.setBounds(12, 109, 97, 25);
+		btnHome.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				btnHome.setBackground(new Color(0, 0, 0));
+			}
+		});
+		btnHome.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				btnHome.setBackground(new Color(0, 0, 0));
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				btnHome.setBackground(new Color(0, 0, 0));
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				btnHome.setBackground(new Color(0, 0, 0));
+			}
+		});
+		btnHome.setBackground(Color.BLACK);
+		btnHome.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnHome.setForeground(Color.WHITE);
+		btnHome.setFocusPainted(false);
+		btnHome.setBorder(null);
+
+		btnHome.setBounds(24, 132, 97, 25);
 		TabPanel.add(btnHome);
+
+		btnHome.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnHome.setBackground(new Color(60, 60, 60));
+			}
+		});
+		btnHome.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnHome.setBackground(new Color(0, 0, 0));
+			}
+		});
+
+		btnDisplay.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+
+				btnDisplay.setBackground(new Color(60, 60, 60));
+			}
+		});
+		btnDisplay.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnDisplay.setBackground(new Color(0, 0, 0));
+			}
+		});
+
+		btnRegister.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+
+				btnRegister.setBackground(new Color(60, 60, 60));
+			}
+		});
+		btnRegister.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnRegister.setBackground(new Color(0, 0, 0));
+			}
+		});
 
 		add(TabPanel);
 
 		cardContainer = new JPanel();
-		cardContainer.setBounds(129, 0, 655, 455);
+		cardContainer.setBounds(143, 0, 641, 455);
 		add(cardContainer);
 		JPanel homePanel = new JPanel();
 		JPanel registerPanel = new JPanel();
 		cl_cardContainer = new CardLayout();
 
-		homePanel.setBackground(new Color(255, 51, 51));
+		homePanel.setBackground(SystemColor.activeCaption);
 		registerPanel.setBackground(new Color(255, 255, 255));
 
 		cardContainer.setLayout(cl_cardContainer);
@@ -82,56 +221,69 @@ public class SecondaryPanel extends JPanel {
 		JLabel lblEmployeeManagementSystem_1 = new JLabel("Employee Management System");
 		lblEmployeeManagementSystem_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEmployeeManagementSystem_1.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblEmployeeManagementSystem_1.setBounds(0, 0, 655, 66);
+		lblEmployeeManagementSystem_1.setBounds(0, 0, 641, 66);
 		homePanel.add(lblEmployeeManagementSystem_1);
 		cardContainer.add(registerPanel, "2");
 		registerPanel.setLayout(null);
 
 		JLabel lblEmployeeId = new JLabel("Employee ID :");
-		lblEmployeeId.setBounds(73, 115, 102, 38);
+		lblEmployeeId.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblEmployeeId.setBounds(73, 148, 102, 38);
 		registerPanel.add(lblEmployeeId);
 
-		JLabel lblEmployeeName = new JLabel("Name:");
-		lblEmployeeName.setBounds(73, 180, 102, 38);
+		JLabel lblEmployeeName = new JLabel("Name : ");
+		lblEmployeeName.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblEmployeeName.setBounds(73, 213, 102, 38);
 		registerPanel.add(lblEmployeeName);
 
-		JLabel lblPhoneNo = new JLabel("Email:");
-		lblPhoneNo.setBounds(73, 244, 102, 38);
+		JLabel lblPhoneNo = new JLabel("Email : ");
+		lblPhoneNo.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPhoneNo.setBounds(73, 277, 102, 38);
 		registerPanel.add(lblPhoneNo);
 
-		JLabel lblJobPost = new JLabel("Position:");
-		lblJobPost.setBounds(73, 310, 102, 38);
+		JLabel lblJobPost = new JLabel("Position : ");
+		lblJobPost.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblJobPost.setBounds(73, 343, 102, 38);
 		registerPanel.add(lblJobPost);
 
 		idTextField = new JTextField();
-		idTextField.setBounds(187, 115, 149, 38);
+		idTextField.setBounds(187, 148, 149, 38);
 		registerPanel.add(idTextField);
 		idTextField.setColumns(10);
 
 		nameTextField = new JTextField();
 		nameTextField.setColumns(10);
-		nameTextField.setBounds(187, 180, 149, 38);
+		nameTextField.setBounds(187, 213, 149, 38);
 		registerPanel.add(nameTextField);
 
 		phNoTextField = new JTextField();
 		phNoTextField.setColumns(10);
-		phNoTextField.setBounds(187, 244, 149, 38);
+		phNoTextField.setBounds(187, 277, 149, 38);
 		registerPanel.add(phNoTextField);
 
 		posTextField = new JTextField();
 		posTextField.setColumns(10);
-		posTextField.setBounds(187, 310, 149, 38);
+		posTextField.setBounds(187, 343, 149, 38);
 		registerPanel.add(posTextField);
 
 		btnSave = new JButton("Save");
-		btnSave.setBounds(234, 377, 102, 25);
+		btnSave.setBounds(423, 343, 102, 38);
 		registerPanel.add(btnSave);
 
 		JLabel lblEmployeeManagementSystem_1_1 = new JLabel("Employee Management System");
 		lblEmployeeManagementSystem_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEmployeeManagementSystem_1_1.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblEmployeeManagementSystem_1_1.setBounds(0, 0, 655, 66);
+		lblEmployeeManagementSystem_1_1.setBounds(0, 0, 641, 66);
 		registerPanel.add(lblEmployeeManagementSystem_1_1);
+
+		BufferedImage img = ImageIO.read(new File("img/avatar-profile-png-3.png"));
+
+		Image newImage = img.getScaledInstance(141, 141, Image.SCALE_DEFAULT);
+		JLabel lblEmpImg = new JLabel();
+		lblEmpImg.setIcon(new ImageIcon(newImage));
+		lblEmpImg.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEmpImg.setBounds(400, 95, 149, 140);
+		registerPanel.add(lblEmpImg);
 		cl_cardContainer.show(cardContainer, "1");
 
 		JPanel DisplayPanel = new JPanel();
@@ -151,18 +303,19 @@ public class SecondaryPanel extends JPanel {
 		displayTable.setAutoCreateRowSorter(true);
 
 		JScrollPane pane = new JScrollPane(displayTable);
-		pane.setForeground(Color.red);
+		pane.setForeground(Color.WHITE);
 		pane.setBackground(Color.BLACK);
-		pane.setBounds(38, 86, 584, 290);
+		pane.setBounds(38, 86, 569, 277);
 
 		DisplayPanel.add(pane);
 
-		JButton btnRemove = new JButton("Remove");
-		btnRemove.setBounds(519, 378, 103, 37);
+		btnRemove = new JButton("Remove");
+
+		btnRemove.setBounds(504, 387, 103, 37);
 		DisplayPanel.add(btnRemove);
 
 		JLabel lblEmployeeManagementSystem = new JLabel("Employee Management System");
-		lblEmployeeManagementSystem.setBounds(0, 0, 655, 66);
+		lblEmployeeManagementSystem.setBounds(0, 0, 641, 66);
 		DisplayPanel.add(lblEmployeeManagementSystem);
 		lblEmployeeManagementSystem.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEmployeeManagementSystem.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -234,14 +387,6 @@ public class SecondaryPanel extends JPanel {
 		this.model = model;
 	}
 
-	public Object[] getRows() {
-		return rows;
-	}
-
-	public void setRows(Object[] rows) {
-		this.rows = rows;
-	}
-
 	public JButton getBtnSave() {
 		return btnSave;
 	}
@@ -288,5 +433,13 @@ public class SecondaryPanel extends JPanel {
 
 	public void setLblTotalNumberOf(JLabel lblTotalNumberOf) {
 		this.lblTotalNumberOf = lblTotalNumberOf;
+	}
+
+	public JButton getBtnRemove() {
+		return btnRemove;
+	}
+
+	public void setBtnRemove(JButton btnRemove) {
+		this.btnRemove = btnRemove;
 	}
 }

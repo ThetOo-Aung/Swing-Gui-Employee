@@ -37,7 +37,7 @@ public class Gui {
 	private static Object[] rows = new Object[4];
 	private static BufferedImage image;
 
-	public  void guiGenerate(String[] args) throws IOException {
+	public void guiGenerate(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		JFrame frame = new JFrame("EMP Management System");
 		frame.getContentPane().setBackground(Color.WHITE);
@@ -86,14 +86,13 @@ public class Gui {
 
 		JButton btnLogin = new JButton("Login");
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnLogin.setBackground(new Color(35, 73, 112));
+		btnLogin.setBackground(new Color(	16,125,172));
 		btnLogin.setForeground(Color.WHITE);
 		btnLogin.setBounds(235, 238, 97, 30);
 		btnLogin.setFocusPainted(false);
 		loginPanel.add(btnLogin);
 
-		image = ImageIO.read(new File(
-				"D:\\TProjects_by_TOA\\SE_Team_Projects\\Demo_Project_For_SETeam\\BE_Demo\\Demo_Project\\img\\Christmas.jpg"));
+		image = ImageIO.read(new File("img/Christmas.jpg"));
 		Image newImage = image.getScaledInstance(391, 455, Image.SCALE_DEFAULT);
 
 		JPanel ImagePanel = new JPanel();
