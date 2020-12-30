@@ -10,6 +10,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -20,13 +21,14 @@ public class MainPanel extends JPanel{
 	
 	private JTextField usernameTextField;
 	private JPasswordField passwordField;
-	private static BufferedImage image ;
+	private  BufferedImage image ;
+	private JButton btnLogin;
 	
 	public MainPanel() throws IOException{
 	
 		setBounds(0, 0, 784, 455);
-		//frame.getContentPane().add(MainPanel);
 		setLayout(null);
+		setVisible(true);
 
 		JPanel loginPanel = new JPanel();
 		loginPanel.setBounds(0, 0, 397, 455);
@@ -64,7 +66,7 @@ public class MainPanel extends JPanel{
 		passwordField.setBounds(129, 174, 203, 30);
 		loginPanel.add(passwordField);
 
-		JButton btnLogin = new JButton("Login");
+		 btnLogin = new JButton("Login");
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnLogin.setBackground(new Color(35, 73, 112));
 		btnLogin.setForeground(Color.WHITE);
@@ -84,5 +86,32 @@ public class MainPanel extends JPanel{
 		picLabel.setLocation(0, 0);
 		picLabel.setSize(391,455);
 		ImagePanel.add(picLabel);
+		
+		
+		
+	}
+
+	public JButton getBtnLogin() {
+		return btnLogin;
+	}
+
+	public void setBtnLogin(JButton btnLogin) {
+		this.btnLogin = btnLogin;
+	}
+
+	public JTextField getUsernameTextField() {
+		return usernameTextField;
+	}
+
+	public void setUsernameTextField(JTextField usernameTextField) {
+		this.usernameTextField = usernameTextField;
+	}
+
+	public JPasswordField getPasswordField() {
+		return passwordField;
+	}
+
+	public void setPasswordField(JPasswordField passwordField) {
+		this.passwordField = passwordField;
 	}
 }
