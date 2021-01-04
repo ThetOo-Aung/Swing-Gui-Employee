@@ -45,6 +45,8 @@ public class SecondaryPanel extends JPanel {
 	private Object[] columns = { "ID", "Name", "Email", "Position" };
 	private JTable displayTable;
 	private DefaultTableModel model = new DefaultTableModel();
+	
+	private JLabel lblRegisterNewEmployee;
 
 	private JLabel lblTotalNumberOf;
 
@@ -227,21 +229,25 @@ public class SecondaryPanel extends JPanel {
 		registerPanel.setLayout(null);
 
 		JLabel lblEmployeeId = new JLabel("Employee ID :");
+		lblEmployeeId.setFont(new Font("Verdana", Font.PLAIN, 13));
 		lblEmployeeId.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblEmployeeId.setBounds(73, 148, 102, 38);
 		registerPanel.add(lblEmployeeId);
 
 		JLabel lblEmployeeName = new JLabel("Name : ");
+		lblEmployeeName.setFont(new Font("Verdana", Font.PLAIN, 13));
 		lblEmployeeName.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblEmployeeName.setBounds(73, 213, 102, 38);
 		registerPanel.add(lblEmployeeName);
 
 		JLabel lblPhoneNo = new JLabel("Email : ");
+		lblPhoneNo.setFont(new Font("Verdana", Font.PLAIN, 13));
 		lblPhoneNo.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPhoneNo.setBounds(73, 277, 102, 38);
 		registerPanel.add(lblPhoneNo);
 
 		JLabel lblJobPost = new JLabel("Position : ");
+		lblJobPost.setFont(new Font("Verdana", Font.PLAIN, 13));
 		lblJobPost.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblJobPost.setBounds(73, 343, 102, 38);
 		registerPanel.add(lblJobPost);
@@ -284,6 +290,12 @@ public class SecondaryPanel extends JPanel {
 		lblEmpImg.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEmpImg.setBounds(400, 95, 149, 140);
 		registerPanel.add(lblEmpImg);
+		
+		lblRegisterNewEmployee = new JLabel("Add Following Infos to Register New Employee");
+		lblRegisterNewEmployee.setForeground(SystemColor.textHighlight);
+		lblRegisterNewEmployee.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 13));
+		lblRegisterNewEmployee.setBounds(43, 79, 297, 48);
+		registerPanel.add(lblRegisterNewEmployee);
 		cl_cardContainer.show(cardContainer, "1");
 
 		JPanel DisplayPanel = new JPanel();
@@ -441,5 +453,13 @@ public class SecondaryPanel extends JPanel {
 
 	public void setBtnRemove(JButton btnRemove) {
 		this.btnRemove = btnRemove;
+	}
+
+	public JLabel getLblRegisterNewEmployee() {
+		return lblRegisterNewEmployee;
+	}
+
+	public void setLblRegisterNewEmployee(JLabel lblRegisterNewEmployee) {
+		this.lblRegisterNewEmployee = lblRegisterNewEmployee;
 	}
 }

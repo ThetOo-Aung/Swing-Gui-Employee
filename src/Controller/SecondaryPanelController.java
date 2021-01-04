@@ -1,12 +1,14 @@
 package Controller;
 
 import java.awt.Color;
+import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import Model.TableData;
@@ -102,10 +104,15 @@ public class SecondaryPanelController {
 			this.secPanel.getNameTextField().setText("");
 			this.secPanel.getPhNoTextField().setText("");
 			this.secPanel.getPosTextField().setText("");
+			
+			
+			this.secPanel.getLblRegisterNewEmployee().setForeground(SystemColor.textHighlight);
 
 		} else {
 			JOptionPane.showMessageDialog(myFrame, "Input fields cannot be blank", "Input Requirement Error",
 					JOptionPane.ERROR_MESSAGE);
+			this.secPanel.getLblRegisterNewEmployee().setForeground(Color.RED);
+			
 		}
 	}
 }
